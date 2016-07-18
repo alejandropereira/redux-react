@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { addDeck, showAddDeck, hideAddDeck } from '../actions';
+import { addDeck, hideAddDeck } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
@@ -10,7 +10,6 @@ const mapStateToProps = ({ decks, addingDeck }) => ({
 
 const mapDispatchToProps = dispatch => ({
   addDeck: name => dispatch(addDeck(name)),
-  showAddDeck: () => dispatch(showAddDeck()),
   hideAddDeck: () => dispatch(hideAddDeck()),
 });
 
@@ -40,7 +39,6 @@ class Sidebar extends Component {
     return (
       <div className="sidebar">
         <h2>All Decks</h2>
-        <button onClick={() => { this.props.showAddDeck(); }}>Add Deck</button>
         <ul>
           {decks.map((deck, i) => (
             <li key={i}>
